@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.formcontent{
+  left: 20%;
+  position: relative;
+  
+}
+.buynow{
+  top: 40px;
+  right: 20%;
+  position: relative;
+}
