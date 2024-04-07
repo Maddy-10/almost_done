@@ -1,0 +1,39 @@
+INDEX.html page :
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+Payment Page :
+const [amt, setAmt] = useState(0);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(amt===0){
+      alert("Enter Amount");
+    }
+    else{
+      var options = {
+        key:"rzp_test_dxDTCt5Zu3cl2a",
+        key_secret:"aDgbLBPROTV6HfPelJpStyDj",
+        amount:amt*100,
+        currency:"INR",
+        name:"ShopIT",
+        description:"Buy a Product",
+        handler:function(response){
+          alert(response.razorpay_payment_id);
+        },
+        prefill:{
+          name:"user",
+          email:"jrmadhan10@gmail.com",
+          contact:"8825893275"
+        },
+        notes:{
+          address:"ShopIT PVT LTD"
+        },
+        theme:{
+          color:"#3399cc"
+        }
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
+    console.log(amt);
+    console.log("payment gateway");
+  }
